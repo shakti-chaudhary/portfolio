@@ -1,27 +1,40 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { DashboardLayout } from './layouts/DashboardLayout';
-import { ProtectedRoute } from './routes/ProtectedRoute';
+// import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+// import { DashboardLayout } from './layouts/DashboardLayout';
+// import { ProtectedRoute } from './router/ProtectedRoute';
+import { Provider, useSelector } from 'react-redux';
+import { store, type RootState } from './store/store';
+import { applyTheme } from './features/theme';
+import { useEffect } from 'react';
 
-const LoginPage = () => <div className="h-screen flex items-center justify-center bg-brand-50">Login Form (Public)</div>;
-const DashboardHome = () => <h1 className="text-2xl font-bold text-brand-900">Welcome to your Secure Dashboard</h1>;
+
+const ThemeSync: React.FC = () => {
+  const mode = useSelector((state: RootState) => state.theme.mode)
+  useEffect(() => applyTheme(mode), [mode])
+  return null
+}
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        {/* Public Routes */}
-        <Route path="/login" element={<LoginPage />} />
-        
-        {/* Protected Feature Routes */}
-        <Route element={<ProtectedRoute roles={['ADMIN']} />}>
-          <Route element={<DashboardLayout />}>
-            <Route path="/dashboard" element={<DashboardHome />} />
-          </Route>
-        </Route>
-
-        <Route path="*" element={<Navigate to="/dashboard" />} />
-      </Routes>
-    </BrowserRouter>
+    <Provider store={store}>
+      <ThemeSync />
+      
+    </Provider>
   );
 }
 export default App;
+
+    // <BrowserRouter>
+    //   <Routes>
+    //     {/* Public Routes */}
+    //     <Route path="/login" element={<LoginPage />} />
+        
+    //     {/* Protected Feature Routes */}
+    //     <Route element={<ProtectedRoute roles={['ADMIN']} />}>
+    //       <Route element={<DashboardLayout />}>
+    //         <Route path="/dashboard" element={<DashboardHome />} />
+    //       </Route>
+    //     </Route>
+
+    //     <Route path="*" element={<Navigate to="/dashboard" />} />
+    //   </Routes>
+    // </BrowserRouter>
