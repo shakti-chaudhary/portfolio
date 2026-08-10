@@ -5,6 +5,7 @@ import { Provider, useSelector } from 'react-redux';
 import { store, type RootState } from './store/store';
 import { applyTheme } from './features/theme';
 import { useEffect } from 'react';
+import { AppRouter } from './router/AppRouter';
 
 
 const ThemeSync: React.FC = () => {
@@ -13,11 +14,21 @@ const ThemeSync: React.FC = () => {
   return null
 }
 
+/** Fixed colour-mesh backdrop + film grain. Purely decorative. */
+const Backdrop: React.FC = () => (
+  <div className="mesh-bg" aria-hidden="true">
+    <span className="mesh-blob mesh-blob-1" />
+    <span className="mesh-blob mesh-blob-2" />
+    <span className="mesh-blob mesh-blob-3" />
+  </div>
+)
+
 function App() {
   return (
     <Provider store={store}>
       <ThemeSync />
-      
+      <Backdrop/>
+      <AppRouter/>
     </Provider>
   );
 }
