@@ -1,11 +1,4 @@
-/**
- * Button.tsx
- * Pill-shaped button system. Renders as <button> or <a> via the `as` prop.
- *
- *   <Button variant="primary" size="lg">Start a project</Button>
- *   <Button as="a" href="/blog" variant="outline">Journal</Button>
- *   <Button variant="primary" trailingDot>View all work</Button>   ← arrow disc
- */
+
 import React from 'react'
 import { cn } from '@/lib/utils'
 import { Spinner } from '../Spinner'

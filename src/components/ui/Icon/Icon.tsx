@@ -1,8 +1,4 @@
 /**
- * Icon.tsx
- * Wrapper around Material Symbols Outlined icon font.
- * Handles size, weight (fill), color, and accessibility.
- *
  * Usage:
  *   <Icon name="arrow_forward" size={20} />
  *   <Icon name="terminal" filled className="text-primary" />

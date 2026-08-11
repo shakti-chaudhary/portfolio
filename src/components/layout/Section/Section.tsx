@@ -1,8 +1,4 @@
-/**
- * Section.tsx
- * Semantic <section> wrapper with consistent vertical rhythm.
- * `background="band"` paints a recessed band used to separate major blocks.
- */
+
 import React from 'react'
 import { cn } from '@/lib/utils'
 

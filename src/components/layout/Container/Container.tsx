@@ -1,8 +1,4 @@
-/**
- * Container.tsx
- * Max-width content wrapper. Use for every page section.
- * Handles horizontal padding + centering.
- */
+
 import React from 'react'
 import { cn } from '@/lib/utils'
 

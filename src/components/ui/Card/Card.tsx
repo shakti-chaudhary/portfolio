@@ -1,10 +1,4 @@
-/**
- * Card.tsx
- * ─────────────────────────────────────────────────────────────────────────────
- * Rounded surface container. `panel` / `panel-soft` come from components.css,
- * so each variant renders correctly in light, dark and glass automatically.
- * ─────────────────────────────────────────────────────────────────────────────
- */
+
 import React from 'react'
 import { cn } from '@/lib/utils'
 
