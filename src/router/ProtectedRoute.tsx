@@ -1,6 +1,6 @@
 import { Navigate, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import type { RootState } from '../store/store';
+import type { RootState } from '../app/store';
 
 export const ProtectedRoute = ({ roles }: { roles?: string[] }) => {
   const { user } = useSelector((state: RootState) => state.auth);
@@ -8,3 +8,4 @@ export const ProtectedRoute = ({ roles }: { roles?: string[] }) => {
   if (roles && !roles.includes(user.role)) return <Navigate to="/unauthorized" replace />;
   return <Outlet />;
 };
+// not in use.

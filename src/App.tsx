@@ -2,7 +2,7 @@
 // import { DashboardLayout } from './layouts/DashboardLayout';
 // import { ProtectedRoute } from './router/ProtectedRoute';
 import { Provider, useSelector } from 'react-redux';
-import { store, type RootState } from './store/store';
+import { store, type RootState } from './app/store';
 import { applyTheme } from './features/theme';
 import { useEffect } from 'react';
 import { AppRouter } from './router/AppRouter';

@@ -1,12 +1,46 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>shakti_portfolio</title>
+    <meta name="description" content="Shakti Chaudhary — Full-Stack MERN engineer building high-performance web applications." />
+    <meta name="theme-color" content="#f2efea" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Shakti Chaudhary — Full-Stack MERN Engineer" />
+    <meta property="og:description" content="Precision code, considered interfaces, and systems that stay fast as they scale." />
+
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Instrument Serif (display) · Plus Jakarta Sans (headline) · Inter (body) · JetBrains Mono (code) -->
+    <link  href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"/>
+
+    <!-- Material Symbols Outlined -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet" />
+
+    <title>Shakti Chaudhary — Full-Stack MERN Engineer</title>
+
+    <!-- Apply the stored theme before first paint to avoid a flash -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('sc__theme')
+          var mode = stored === 'light' || stored === 'dark' || stored === 'glass' ? stored : window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+          var root = document.documentElement
+          root.setAttribute('data-theme', mode)
+          root.classList.toggle('dark', mode !== 'light')
+          root.style.colorScheme = mode === 'light' ? 'light' : 'dark'
+        } catch (e) {}
+      })()
+    </script>
   </head>
-  <body>
+  <body class="grain">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

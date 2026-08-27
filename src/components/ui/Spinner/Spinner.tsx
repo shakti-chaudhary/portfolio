@@ -14,6 +14,5 @@ const sizeMap = {
 }
 
 export const Spinner: React.FC<SpinnerProps> = ({ size = 'md', className }) => (
-  <span role="status" aria-label="Loading"
-    className={cn('inline-block rounded-full border-current border-r-transparent animate-spin', sizeMap[size], className )} />
+  <span role="status" aria-label="Loading" className={cn('inline-block rounded-full border-current border-r-transparent animate-spin', sizeMap[size], className )} />
 )
