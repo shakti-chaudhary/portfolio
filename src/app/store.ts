@@ -2,13 +2,16 @@ import { configureStore } from '@reduxjs/toolkit';
 import authReducer from '../features/auth/store/authSlice';
 import { themeReducer } from '../features/theme';
 
-import navigationReducer from '@/features/navigation/store/navigationSlice'
+// import navigationReducer from '@/features/navigation/store/navigationSlice'
+import { projectsReducer } from '@/features/projects';
+import { navigationReducer } from '@/features/navigation';
 
 export const store = configureStore({
   reducer: {
      auth: authReducer,
      theme:themeReducer,
      navigation: navigationReducer,
+     projects: projectsReducer
      },
 });
 

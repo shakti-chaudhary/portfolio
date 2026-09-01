@@ -1,0 +1,6 @@
+export { useProjects } from './hooks/useProjects'
+export { default as projectsReducer } from './store/projectsSlice'
+export { default as  ProjectCard } from './components/ProjectCard'
+export { default as ProjectsSection } from './components/ProjectsSection'
+export { projectsSlice, setCategory, selectProject } from './store/projectsSlice'
+export type { Project, ProjectCategory } from './types/projects.types'
