@@ -72,7 +72,6 @@ function ProjectCard({project,className,...rest} : ProjectCardProps) {
           <Icon name="arrow_outward" size={18} className="ml-auto text-muted transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent" />
         </div>
      </div>
-     
     </article>
   )
 }

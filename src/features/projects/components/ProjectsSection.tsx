@@ -1,7 +1,8 @@
-import React, { memo } from 'react'
-import { useProjects } from '../hooks/useProjects'
-import { Button, Container, Section, SectionHeading } from '@/components'
+import { memo } from 'react'
 import ProjectCard from './ProjectCard'
+import { useProjects } from '../hooks/useProjects'
+import { Container, Section } from '@/components/layout'
+import { Button, SectionHeading } from '@/components/ui'
 
 function ProjectsSection() {
     const { projects } = useProjects()
