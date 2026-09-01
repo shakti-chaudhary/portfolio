@@ -3,10 +3,6 @@
 
   /* ─── Surfaces ─────────────────────────────────────────────────────────── */
 
-  /**
-   * .panel — the primary card surface used across the whole site.
-   * Light: white card + soft shadow · Dark: warm charcoal · Glass: frosted.
-   */
   .panel {
     background: var(--panel-bg);
     border: var(--panel-border);
@@ -20,10 +16,7 @@
       transform var(--transition-base);
   }
 
-  /**
-   * .panel-overlay — a .panel variant for chips/plates that float on top of
-   * photography. Uses a heavier tint so text stays legible over any image.
-   */
+
   .panel-overlay {
     background: var(--overlay-bg);
     backdrop-filter: var(--overlay-blur);
@@ -62,10 +55,6 @@
 
   /* ─── Backdrop mesh (the soul of glass mode) ───────────────────────────── */
 
-  /**
-   * .mesh-bg — fixed, full-viewport colour mesh painted behind everything.
-   * Barely-there in light/dark, fully luminous in glass mode.
-   */
   .mesh-bg {
     position: fixed;
     inset: 0;

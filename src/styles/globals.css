@@ -1,14 +1,166 @@
+@import "tailwindcss";
 @import './typography.css';
 @import './animations.css';
 @import './components.css';
 
-@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
-/* Loads the existing v3-style config (colors, fonts, radii, keyframes,
-   animations, shadows, darkMode: 'class', content globs, etc.) into the
-   v4 build. This is Tailwind v4's official backwards-compat path, so
-   nothing below needs to be rewritten as @theme — output is identical. */
-@config "../../tailwind.config.ts";
+@source '../../index.html';
+@source '../**/*.{ts,tsx}';
+
+
+@theme {
+    
+  /* ── Colors ──────────────────────────────────────────────────────────── */
+  --color-bg: rgb(var(--c-bg));
+  --color-bg-alt: rgb(var(--c-bg-alt));
+  --color-surface: rgb(var(--c-surface));
+  --color-surface-alt: rgb(var(--c-surface-alt));
+  --color-ink: rgb(var(--c-text));
+  --color-muted: rgb(var(--c-text-muted));
+  --color-accent: rgb(var(--c-accent));
+  --color-accent-ink: rgb(var(--c-accent-ink));
+  --color-line: rgb(var(--c-border));
+
+  /* ── Font families ────────────────────────────────────────────────── */
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-headline: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* ── Font sizes (v4 pairs each size with its line-height variable) ──── */
+  --text-2xs: 0.625rem;
+  --text-2xs--line-height: 0.875rem;
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1rem;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.35rem;
+  --text-base: 1rem;
+  --text-base--line-height: 1.6rem;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.75rem;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 1.85rem;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 1.9rem;
+  --text-3xl: 1.875rem;
+  --text-3xl--line-height: 2.2rem;
+  --text-4xl: 2.25rem;
+  --text-4xl--line-height: 2.4rem;
+  --text-5xl: 3rem;
+  --text-5xl--line-height: 1.05;
+  --text-6xl: 3.75rem;
+  --text-6xl--line-height: 1;
+  --text-7xl: 4.5rem;
+  --text-7xl--line-height: 0.98;
+  --text-8xl: 6rem;
+  --text-8xl--line-height: 0.95;
+  --text-9xl: 8rem;
+  --text-9xl--line-height: 0.92;
+
+  /* ── Spacing additions ────────────────────────────────────────────── */
+  --spacing-18: 4.5rem;
+  --spacing-22: 5.5rem;
+  --spacing-26: 6.5rem;
+  --spacing-30: 7.5rem;
+
+  /* ── Border radius (bare `--radius` = the old `DEFAULT` key = `rounded`) */
+  --radius-none: 0px;
+  --radius: 0.75rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-3xl: 2.75rem;
+  --radius-4xl: 3.5rem;
+  --radius-full: 9999px;
+
+  /* ── Letter spacing (v4 namespace is `--tracking-*`) ─────────────────── */
+  --tracking-tightest: -0.05em;
+  --tracking-tighter: -0.035em;
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.05em;
+  --tracking-wider: 0.12em;
+  --tracking-widest: 0.2em;
+
+  /* ── Z-index scale (v4 namespace is `--z-index-*`) ─────────────────────────── */
+  --z-index-behind: -1;
+  --z-index-base: 0;
+  --z-index-raised: 10;
+  --z-index-dropdown: 20;
+  --z-index-sticky: 30;
+  --z-index-overlay: 40;
+  --z-index-modal: 50;
+  --z-index-nav: 90;
+  --z-index-top: 100;
+
+  /* ── Animations (keyframes themselves live in plain @keyframes below) ── */
+  --animate-fade-in: fade-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  --animate-fade-in-up: fade-in-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  --animate-scale-in: scale-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-slow: float 9s ease-in-out infinite;
+  --animate-pulse-dot: pulse-dot 2s ease-in-out infinite;
+  --animate-pulse-ring: pulse-ring 2s ease-out infinite;
+  --animate-shimmer: shimmer 1.8s linear infinite;
+  --animate-spin-slow: spin 18s linear infinite;
+
+  /* ── Transition timing function (v4 namespace is `--ease-*`) ─────────── */
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* ── Max-width scale (v4 namespace is `--container-*`) ───────────────── */
+  --container-container: 82rem;
+  --container-content-sm: 40rem;
+  --container-content-md: 56rem;
+  --container-content-lg: 64rem;
+
+  /* ── Backdrop / filter blur scale ─────────────────────────────────────
+     v4 shares one `--blur-*` scale between `blur-*` and `backdrop-blur-*`,
+     so these values apply to both exactly as `backdropBlur` did before. */
+  --blur-xs: 2px;
+  --blur-sm: 6px;
+  --blur: 12px;
+  --blur-md: 18px;
+  --blur-lg: 24px;
+  --blur-xl: 36px;
+
+  /* ── Box shadow ───────────────────────────────────────────────────── */
+  --shadow-soft: 0 12px 34px -18px rgb(0 0 0 / 0.35);
+  --shadow-lift: 0 28px 60px -28px rgb(0 0 0 / 0.5);
+}
+
+/* Keyframes referenced by the --animate-* variables above. In v4 these are
+   declared as plain CSS rather than inside @theme. */
+@keyframes fade-in {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in-up {
+  0% { opacity: 0; transform: translateY(28px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes scale-in {
+  0% { opacity: 0; transform: scale(0.94); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.55; }
+}
+@keyframes pulse-ring {
+  0% { transform: scale(0.85); opacity: 0.7; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
 
 @layer base {
   /* ─────────────────────────────────────────────────────────────────────────
@@ -147,12 +299,12 @@
     --font-body: 'Inter', system-ui, sans-serif;
     --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
-    --radius-sm: 0.625rem;
-    --radius: 1rem;
-    --radius-lg: 1.5rem;
-    --radius-xl: 2rem;
-    --radius-2xl: 2.75rem;
-    --radius-full: 9999px;
+    --ui-radius-sm: 0.625rem;
+    --ui-radius: 1rem;
+    --ui-radius-lg: 1.5rem;
+    --ui-radius-xl: 2rem;
+    --ui-radius-2xl: 2.75rem;
+    --ui-radius-full: 9999px;
 
     --transition-fast: 120ms cubic-bezier(0.22, 1, 0.36, 1);
     --transition-base: 260ms cubic-bezier(0.22, 1, 0.36, 1);
@@ -197,7 +349,7 @@
   :focus-visible {
     outline: 2px solid rgb(var(--c-accent));
     outline-offset: 3px;
-    border-radius: var(--radius-sm);
+    border-radius: var(--ui-radius-sm);
   }
 
   :focus:not(:focus-visible) {

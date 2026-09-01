@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { Spinner } from "@/components/ui";
 import HomePage from "@/pages/HomePage";
 import { Navbar } from "@/features/navigation/components/Navbar";
+import NotFoundPage from "@/pages/NotFoundPage";
 
 const PageLoader: React.FC = () => (
   <div className="min-h-screen flex items-center justify-center">
@@ -25,9 +26,10 @@ export const AppRouter = ()=>(
     <ScrollToTop/>
     <Navbar/>
     <Suspense fallback={<PageLoader/>}>
-    <Routes>
-        <Route path="/" element={<HomePage/>} />
-    </Routes>
+       <Routes>
+           <Route path="/" element={<HomePage/>} />
+           <Route path="*" element={<NotFoundPage/>} />
+       </Routes>
     </Suspense>
     </BrowserRouter>
 )

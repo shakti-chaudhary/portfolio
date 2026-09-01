@@ -8,12 +8,11 @@
 import type { ThemeMode } from '@/types/common.types'
 
 // ─── Site identity ────────────────────────────────────────────────────────
-export const SITE_NAME = 'Shakti'
+export const SITE_NAME = 'Shakti Chaudhary'
 export const SITE_OWNER = 'Shakti Chaudhary'
 export const SITE_ROLE = 'Full-Stack MERN Engineer'
 export const SITE_TAGLINE = 'Full-Stack MERN Developer'
-export const SITE_INTRO =
-  'I design and build high-performance web applications — precise code, considered interfaces, and systems that stay fast as they scale.'
+export const SITE_INTRO = 'I design and build high-performance web applications — precise code, considered interfaces, and systems that stay fast as they scale.'
 export const CONTACT_EMAIL = 'shakti@terminal-architect.io'
 export const CONTACT_LOCATION = 'Remote · India · UTC+5:30'
 export const SITE_URL = 'https://shakti-chaudahry.io'

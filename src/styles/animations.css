@@ -1,11 +1,5 @@
 /**
  * animations.css
- * ─────────────────────────────────────────────────────────────────────────────
- * ONLY @keyframes + a few stagger helpers. Named animation utilities live in
- * tailwind.config.ts so they participate in Tailwind's purging.
- *
- * Stagger siblings without JS via `style={{ '--delay': '120ms' }}`.
- * ─────────────────────────────────────────────────────────────────────────────
  */
 
 /* ─── Entrance ───────────────────────────────────────────────────────────── */
