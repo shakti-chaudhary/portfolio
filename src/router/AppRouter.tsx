@@ -1,10 +1,14 @@
-import React from "react";
+import React, { lazy } from "react";
 import { Suspense } from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { Spinner } from "@/components/ui";
-import HomePage from "@/pages/HomePage";
-import { Navbar } from "@/features/navigation/components/Navbar";
-import NotFoundPage from "@/pages/NotFoundPage";
+import { Navbar } from "@/features/navigation";
+
+// Lazy-load pages for code splitting
+const HomePage      = lazy(() => import('@/pages/HomePage'))
+const BlogPage      = lazy(() => import('@/pages/BlogPage'))
+const BlogPostPage  = lazy(() => import('@/pages/BlogPostPage'))
+const NotFoundPage  = lazy(() => import('@/pages/NotFoundPage'))
 
 const PageLoader: React.FC = () => (
   <div className="min-h-screen flex items-center justify-center">
@@ -28,6 +32,8 @@ export const AppRouter = ()=>(
     <Suspense fallback={<PageLoader/>}>
        <Routes>
            <Route path="/" element={<HomePage/>} />
+           <Route path="/blog"        element={<BlogPage />} />
+           <Route path="/blog/:slug"  element={<BlogPostPage />} />
            <Route path="*" element={<NotFoundPage/>} />
        </Routes>
     </Suspense>

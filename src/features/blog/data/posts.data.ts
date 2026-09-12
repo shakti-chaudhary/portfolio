@@ -1,0 +1,88 @@
+import type { BlogPost } from "../types/blog.types";
+
+export const postsData: BlogPost[] = [
+  {
+    id: 'post-1',
+    title: 'Redux Toolkit in 2024: A Deep Dive into RTK Query',
+    slug: 'redux-toolkit-rtk-query-2024',
+    excerpt:
+      'RTK Query eliminates boilerplate for server-state management. Here is how I replaced manual thunks and reducers with a cleaner, type-safe approach.',
+    content: `## Introduction\n\nRedux Toolkit has fundamentally changed how we manage state in large React applications...\n\n## RTK Query\n\nRTK Query is a powerful data fetching and caching tool...`,
+    tags: ['REACT', 'REDUX', 'TYPESCRIPT'],
+    category: 'engineering',
+    publishedAt: '2024-03-15',
+    readingTimeMinutes: 8,
+    featured: true,
+    draft: false,
+  },
+  {
+    id: 'post-2',
+    title: 'Zod + React Hook Form: The Definitive Validation Pattern',
+    slug: 'zod-react-hook-form-validation',
+    excerpt:
+      'Combining Zod schemas with React Hook Form gives you end-to-end type safety from form input to server payload. Here is the complete pattern.',
+    content: `## Why Zod?\n\nZod provides runtime validation that matches your TypeScript types exactly...`,
+    tags: ['ZOD', 'REACT', 'FORMS'],
+    category: 'engineering',
+    publishedAt: '2024-02-08',
+    readingTimeMinutes: 6,
+    featured: true,
+    draft: false,
+  },
+  {
+    id: 'post-3',
+    title: 'Feature-Based Architecture for Scalable React Apps',
+    slug: 'feature-based-architecture-react',
+    excerpt:
+      'Stop organizing by file type. Grouping code by feature co-locates everything that changes together and makes deletion, testing, and onboarding trivial.',
+    content: `## The Problem with Traditional Structure\n\nMost React projects start with folders like components, hooks, utils...`,
+    tags: ['ARCHITECTURE', 'REACT', 'TYPESCRIPT'],
+    category: 'architecture',
+    publishedAt: '2024-01-22',
+    readingTimeMinutes: 10,
+    featured: false,
+    draft: false,
+  },
+  {
+    id: 'post-4',
+    title: 'Node.js Performance: MongoDB Aggregation Pipeline Patterns',
+    slug: 'nodejs-mongodb-aggregation-performance',
+    excerpt:
+      'Replacing naive .find() chains with aggregation pipelines cut our API response time by 60%. A practical walkthrough of the patterns that matter.',
+    content: `## The Problem\n\nOur financial data API was slow. Really slow...`,
+    tags: ['NODE.JS', 'MONGODB', 'PERFORMANCE'],
+    category: 'engineering',
+    publishedAt: '2023-12-11',
+    readingTimeMinutes: 12,
+    featured: false,
+    draft: false,
+  },
+  {
+    id: 'post-5',
+    title: 'Docker + GitHub Actions: Zero-Downtime Deployments',
+    slug: 'docker-github-actions-zero-downtime',
+    excerpt:
+      'A complete CI/CD setup with Docker, GitHub Actions, and rolling deployments on a single VPS. No Kubernetes needed for most projects.',
+    content: `## Overview\n\nYou do not need Kubernetes for a project with fewer than 50k users...`,
+    tags: ['DOCKER', 'CI/CD', 'DEVOPS'],
+    category: 'devops',
+    publishedAt: '2023-11-05',
+    readingTimeMinutes: 9,
+    featured: false,
+    draft: false,
+  },
+  {
+    id: 'post-6',
+    title: 'From Junior to Senior: The Engineering Mindset Shift',
+    slug: 'junior-to-senior-engineering-mindset',
+    excerpt:
+      'Seniority is not about knowing more APIs. It is about thinking in systems, writing for future readers, and understanding the real cost of decisions.',
+    content: `## What Changes\n\nWhen I was a junior developer, I measured progress by the number of features I shipped...`,
+    tags: ['CAREER', 'ENGINEERING'],
+    category: 'career',
+    publishedAt: '2023-10-18',
+    readingTimeMinutes: 7,
+    featured: false,
+    draft: false,
+  },
+]

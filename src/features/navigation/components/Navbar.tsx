@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { cn } from '@/lib/utils'
-import { NAV_ITEMS, CONTACT_EMAIL } from '@/lib/constants'
+import { NAV_ITEMS } from '@/lib/constants'
 import { Button, Icon } from '@/components/ui'
 import { useScrollPosition } from '@/hooks'
 import { useNavigation } from '../hooks/useNavigation'
@@ -26,6 +26,19 @@ export const Navbar: React.FC = () => {
     }
   }, [isMobileMenuOpen])
 
+  useEffect(() => {
+  if (location.hash) {
+    const id = location.hash.substring(1)
+
+    requestAnimationFrame(() => {
+      document.getElementById(id)?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      })
+     })
+    }
+  }, [location.pathname, location.hash])
+
   return (
     <>
       <header className="fixed inset-x-0 top-0 z-nav px-4 pt-4 sm:px-6 sm:pt-5">
@@ -33,18 +46,15 @@ export const Navbar: React.FC = () => {
             isScrolled ? 'panel-nav' : 'border border-transparent bg-transparent' )} >
           <Logo size="sm" />
 
-          {/* Desktop links */}
+          {/* Desktop links  */} 
           <div className="hidden items-center gap-1 lg:flex">
-            {NAV_ITEMS.map((item) =>
-              item.href.startsWith('#') ? (
-                <a key={item.href} href={item.href} className="rounded-full px-4 py-2 text-label-md text-muted transition-colors hover:bg-line/[0.06] hover:text-ink" >
-                  {item.label}
-                </a>
-              ) : (
-                <Link key={item.href} to={item.href} className="rounded-full px-4 py-2 text-label-md text-muted transition-colors hover:bg-line/[0.06] hover:text-ink" >
-                  {item.label}
-                </Link>
-              )
+            {NAV_ITEMS.map((item) => {
+               const isHashLink = item.href.startsWith("#")
+
+              return (<Link key={item.href} to={isHashLink ? `/${item.href}` : item.href} className="rounded-full px-4 py-2 text-label-md text-muted transition-colors hover:bg-line/6 hover:text-ink" >
+                {item.label}
+              </Link>
+              )}
             )}
           </div>
 

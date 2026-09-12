@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { cn } from '@/lib/utils'
-import { NAV_ITEMS, FOOTER_SOCIAL, CONTACT_EMAIL, AVAILABILITY } from '@/lib/constants'
+import { NAV_ITEMS, FOOTER_SOCIAL, AVAILABILITY } from '@/lib/constants'
 import { Button, Icon } from '@/components/ui'
 
 interface MobileMenuProps {
@@ -16,18 +16,14 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => (
     <nav className="flex flex-col">
       {NAV_ITEMS.map((item, i) => {
         const classes = 'group flex items-center justify-between border-b border-line/10 py-5 font-headline text-3xl font-bold tracking-tight text-ink transition-colors hover:text-accent'
-        const trail = (
-          <Icon name="arrow_outward" size={22} className="text-muted transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-accent" />
-        )
+        const trail = ( <Icon name="arrow_outward" size={22} className="text-muted transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-accent" /> )
         const style = { animationDelay: `${i * 60}ms` } as React.CSSProperties
+        const isHashLink = item.href.startsWith('#')
 
-        return item.href.startsWith('#') ? (
-          <a key={item.href}  onClick={onClose} className={classes} style={style}>  {item.label}  {trail}  </a>
-        ) : (
-          <Link key={item.href} to={item.href} onClick={onClose} className={classes} style={style}>
-            {item.label}
-            {trail}
-          </Link>
+        return  (
+        //   <a key={item.href}  onClick={onClose} className={classes} style={style}>  {item.label}  {trail}  </a>
+        // ) : (
+          <Link key={item.href} to={isHashLink ? `/${item.href}` : item.href} onClick={onClose} className={classes} style={style}> {item.label} {trail} </Link>
         )
       })}
     </nav>
@@ -40,15 +36,15 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => (
         </span>
         <span className="text-label-sm text-muted">{AVAILABILITY}</span>
       </div>
-
-      <Button as="a" href={`mailto:${CONTACT_EMAIL}`} variant="primary" size="lg" trailingDot fullWidth>
+      {/* href={`mailto:${CONTACT_EMAIL}`} */}
+      <Button as="a"  variant="primary" size="lg" trailingDot fullWidth>
         Start a project
       </Button>
 
       <div className="flex flex-wrap gap-x-6 gap-y-2">
         {FOOTER_SOCIAL.map(({ platform, href }) => (
           <a  key={platform}  target={href.startsWith('mailto') ? undefined : '_blank'}  rel={href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
-            className="text-label-sm text-muted transition-colors hover:text-accent"  >
+            className="text-label-sm text-muted transition-colors hover:text-accent hover:cursor-pointer"  >
             {platform}
           </a>
         ))}
