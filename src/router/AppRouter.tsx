@@ -2,7 +2,8 @@ import React, { lazy } from "react";
 import { Suspense } from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { Spinner } from "@/components/ui";
-import { Navbar } from "@/features/navigation";
+
+import { Footer, Navbar } from "@/features/navigation";
 
 // Lazy-load pages for code splitting
 const HomePage      = lazy(() => import('@/pages/HomePage'))
@@ -37,5 +38,6 @@ export const AppRouter = ()=>(
            <Route path="*" element={<NotFoundPage/>} />
        </Routes>
     </Suspense>
+    <Footer />
     </BrowserRouter>
 )

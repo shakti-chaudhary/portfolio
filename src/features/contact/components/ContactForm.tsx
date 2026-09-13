@@ -11,6 +11,8 @@ const ContactForm = () => {
 
   const { register, handleSubmit, reset: resetFrom, formState: { errors } } = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
+    mode: "onSubmit",
+    reValidateMode:"onChange",
     defaultValues: { name: '', email: '', subject: '', message: '', honeypot: '' },
   })
 
@@ -47,14 +49,14 @@ const ContactForm = () => {
       <input {...register('honeypot')} type="text" tabIndex={-1} aria-hidden="true" className="sr-only" autoComplete="off" />
 
       <div className="grid gap-5 md:grid-cols-2">
-        <Input label="Name" placeholder="Your name" required error={errors.name?.message} {...register('name')}  />
+        <Input label="Name" type='string' maxLength={100} placeholder="Your name" required error={errors.name?.message} {...register('name')}  />
 
-        <Input label="Email" type="email" placeholder="you@domain.com" required error={errors.email?.message} {...register('email')} />
+        <Input label="Email" type="email" maxLength={150} placeholder="you@domain.com" required error={errors.email?.message} {...register('email')} />
       </div>
 
-      <Input label="Subject" placeholder="Project inquiry / collaboration" required error={errors.subject?.message}  {...register('subject')} />
+      <Input label="Subject" maxLength={150} placeholder="Project inquiry / collaboration" required error={errors.subject?.message}  {...register('subject')} />
 
-      <Textarea label="Message" placeholder="Describe your project, timeline and what success looks like…" required error={errors.message?.message} {...register('message')} />
+      <Textarea label="Message" maxLength={450} placeholder="Describe your project, timeline and what success looks like…" required error={errors.message?.message} {...register('message')} />
 
       {isError && error && ( <p role="alert" className="flex items-center gap-2 text-sm text-red-500"> <Icon name="error" size={16} /> {error} </p> )}
 
