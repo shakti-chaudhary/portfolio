@@ -1,10 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import authReducer from '../features/auth/store/authSlice';
-import { themeReducer } from '../features/theme';
 
-import { projectsReducer } from '@/features/projects';
+import { authReducer } from '@/features/auth';
+import { themeReducer } from '@/features/theme';
 import { navigationReducer } from '@/features/navigation';
+import { projectsReducer } from '@/features/projects';
 import { blogReducer } from '@/features/blog';
+import { contactReducer } from '@/features/contact';
 
 export const store = configureStore({
   reducer: {
@@ -12,7 +13,8 @@ export const store = configureStore({
      theme:themeReducer,
      navigation: navigationReducer,
      projects: projectsReducer,
-     blog: blogReducer
+     blog: blogReducer,
+     contact: contactReducer
      },
 });
 

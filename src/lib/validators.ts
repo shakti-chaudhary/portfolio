@@ -1,9 +1,9 @@
 import { z } from 'zod'
 
 // ─── Primitives ───────────────────────────────────────────────────────────
-export const zEmail = z.string({ required_error: 'Email is required' }).email('Please enter a valid email address').max(254, 'Email must be under 254 characters')
+export const zEmail = z.string({ error: 'Email is required' }).trim().email('Please enter a valid email address').max(254, 'Email must be under 254 characters')
 
-export const zName = z.string({ required_error: 'Name is required' }).min(2, 'Name must be at least 2 characters').max(100, 'Name must be under 100 characters').trim()
+export const zName = z.string({ error: 'Name is required' }).trim().min(2, 'Name must be at least 2 characters').max(100, 'Name must be under 100 characters')
 
 export const zUrl = z.string().url('Please enter a valid URL').optional().or(z.literal(''))
 
@@ -11,10 +11,9 @@ export const zSlug = z.string().min(1, 'Slug is required').max(100).regex(/^[a-z
 
 export const zDateString = z.string().regex(/^\d{4}-\d{2}-\d{2}/, 'Date must be in YYYY-MM-DD format')
 
-export const zNonEmptyString = (field = 'Field') => z.string({ required_error: `${field} is required` }).min(1, `${field} cannot be empty`).trim()
-
+export const zNonEmptyString = (field = 'Field') => z.string({ error: `${field} is required` }).trim().min(1, `${field} cannot be empty`)
 // ─── Reusable field shapes ─────────────────────────────────────────────────
-export const zMessage = z.string({ required_error: 'Message is required' }).min(10, 'Message must be at least 10 characters').max(2000, 'Message must be under 2000 characters').trim()
+export const zMessage = z.string({ error: 'Message is required' }).trim().min(10, 'Message must be at least 10 characters').max(2000, 'Message must be under 2000 characters')
 
 export const zTag = z.string().min(1).max(30).regex(/^[a-zA-Z0-9\s.+#-]+$/, 'Tag contains invalid characters')
 
