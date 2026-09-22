@@ -8,6 +8,8 @@ const initialState: AuthState = { user: null, loading: false, error: null };
 
 export const loginUser = createAsyncThunk('auth/login', async (data: any, { rejectWithValue }) => {
   try {
+    const _ = data;
+    console.log("Data ", _)
     // Simulated API Call
     return { id: '1', name: 'John Doe', role: 'ADMIN', email: 'admin@clinic.com' } as User;
   } catch (err: any) {

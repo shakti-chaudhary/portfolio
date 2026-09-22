@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import { LayoutDashboard, LogOut, User as UserIcon } from 'lucide-react';
+import { LayoutDashboard, User as UserIcon } from 'lucide-react';
 
 export const DashboardLayout = () => (
   <div className="flex min-h-screen bg-slate-50">

@@ -1,6 +1,6 @@
 import { Container } from "@/components/layout";
 import { TechMarquee } from "./TechMarquee";
-import { CONTACT_EMAIL, HERO_IMAGE, HERO_IMAGE_ALT, HERO_STATS, SITE_INTRO, SITE_OWNER, SITE_ROLE } from "@/lib/constants";
+import { HERO_IMAGE, HERO_IMAGE_ALT, HERO_STATS, SITE_INTRO, SITE_OWNER, SITE_ROLE } from "@/lib/constants";
 import { Badge, Button, Icon } from "@/components/ui";
 import { StatusBadge } from "./StatusBadge";
 import { RotatingSeal } from "./RotatingSeal";
